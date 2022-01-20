@@ -1,24 +1,51 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type        | Options                   |
+| ------------------ | ----------- | ------------------------- |
+| email              | string      | null: false, unique: true |
+| encrypted_password | string      | null: false               |
+| nickname           | string      | null: false               |
+| relationship       | integer     | null: false               |
 
-Things you may want to cover:
+### Association
+- has_many :baby_users
+- has_many :babys, through: :baby_users
 
-* Ruby version
+## babysテーブル
 
-* System dependencies
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| nickname            | string     | null: false                    |
+| age                 | integer    | null: false                    |
 
-* Configuration
+### Association
+- has_many :baby_users
+- has_many :users, through: :baby_users
+- has_many :meals
 
-* Database creation
+## baby_usersテーブル
 
-* Database initialization
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| user                | references | null: false, foreign_key: true |
+| baby                | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
+- belongs_to :baby
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## mealsテーブル
 
-* ...
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| food               | string     | null: false                    |
+| date               | date       | null: false                    |
+| meal_time          | integer    | null: false                    |
+| baby               | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :baby
+
+
+
