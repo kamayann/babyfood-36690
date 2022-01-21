@@ -1,2 +1,4 @@
 <h1>Babys#index</h1>
 <p>test</p>
+<%= link_to current_user.nickname, edit_user_path(current_user) ,class: 'btn' %>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: 'btn'%>
