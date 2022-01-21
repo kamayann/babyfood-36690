@@ -16,7 +16,7 @@
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
 | nickname            | string     | null: false                    |
-| age                 | integer    | null: false                    |
+| birth_day           | date       | null: false                    |
 
 ### Association
 - has_many :baby_users
