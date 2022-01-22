@@ -11,7 +11,7 @@
 - has_many :baby_users
 - has_many :babys, through: :baby_users
 
-## babysテーブル
+## babiesテーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
