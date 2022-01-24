@@ -7,4 +7,9 @@
 <% if current_user.present? %>
   <%= link_to "ユーザー情報変更", edit_user_path(current_user) ,class: 'btn' %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: 'btn'%>
+  <%= link_to "お子さんを追加する", new_baby_path ,class: 'btn' %>
+
+  <% @babies.each do |baby| %>
+    <%= link_to baby.nickname, edit_baby_path(baby.id) ,class: 'btn' %>
+  <% end %>
 <% end %>
