@@ -11,8 +11,6 @@ class User < ApplicationRecord
     validates :relationship
   end
 
-  with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i } do
-    validates :password
-  end
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
   
 end
