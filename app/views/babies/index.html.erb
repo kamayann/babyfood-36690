@@ -10,6 +10,6 @@
   <%= link_to "お子さんを追加する", new_baby_path ,class: 'btn' %>
 
   <% @babies.each do |baby| %>
-    <%= link_to baby.nickname, edit_baby_path(baby.id) ,class: 'btn' %>
+    <%= link_to baby.nickname, baby_path(baby.id) ,class: 'btn' %>
   <% end %>
 <% end %>

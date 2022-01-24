@@ -1,5 +1,5 @@
 class BabiesController < ApplicationController
-  before_action :move_index, :only=>[:edit]
+  before_action :move_index, :only=>[:show, :edit]
 
   def index
     @babies = Baby.where(user_id: current_user.id)
@@ -12,10 +12,14 @@ class BabiesController < ApplicationController
   def create
     @baby = Baby.new(baby_params)
     if @baby.save
-      redirect_to babies_path
+      redirect_to baby_path(@baby.id)
     else
       render :new
     end
+  end
+
+  def show
+    @baby = Baby.find(params[:id])
   end
 
   def edit
@@ -25,7 +29,7 @@ class BabiesController < ApplicationController
   def update
     @baby = Baby.find(params[:id])
     if @baby.update(baby_params)
-      redirect_to babies_path
+      redirect_to baby_path(@baby.id)
     else
       render :edit
     end
