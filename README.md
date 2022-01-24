@@ -8,8 +8,7 @@
 | relationship       | integer     | null: false               |
 
 ### Association
-- has_many :baby_users
-- has_many :babys, through: :baby_users
+- has_many :babys
 
 ## babiesテーブル
 
@@ -19,21 +18,8 @@
 | birth_day           | date       | null: false                    |
 
 ### Association
-- has_many :baby_users
-- has_many :users, through: :baby_users
 - has_many :meals
-
-## baby_usersテーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| user                | references | null: false, foreign_key: true |
-| baby                | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :baby
 - belongs_to :user
-
 
 ## mealsテーブル
 
