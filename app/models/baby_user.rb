@@ -1,0 +1,3 @@
+class BabyUser < ApplicationRecord
+  
+end
