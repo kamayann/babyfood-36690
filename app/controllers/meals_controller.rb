@@ -1,16 +1,17 @@
 class MealsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_baby
+  before_action :set_meal, only: [:edit, :update, :destroy]
+
   def index
-    @baby = Baby.find(params[:baby_id])
     @meals = Meal.all.includes(:baby)
   end
 
   def new
     @meal = Meal.new
-    @baby = Baby.find(params[:baby_id])
   end
 
   def create
-    @baby = Baby.find(params[:baby_id])
     @meal = @baby.meals.new(meal_params)
     if @meal.save
       redirect_to baby_meals_path(@baby)
@@ -20,13 +21,9 @@ class MealsController < ApplicationController
   end
 
   def edit
-    @baby = Baby.find(params[:baby_id])
-    @meal = Meal.find(params[:id])
   end
 
   def update
-    @baby = Baby.find(params[:baby_id])
-    @meal = Meal.find(params[:id])
     if @meal.update(meal_params)
       redirect_to baby_meals_path(@baby)
     else
@@ -35,8 +32,6 @@ class MealsController < ApplicationController
   end
 
   def destroy
-    @baby = Baby.find(params[:baby_id])
-    @meal = Meal.find(params[:id])
     if @meal.destroy
       redirect_to baby_meals_path(@baby)
     else
@@ -47,6 +42,14 @@ class MealsController < ApplicationController
   private
   def meal_params
     params.require(:meal).permit(:food, :meal_date, :meal_time)
+  end
+
+  def set_baby
+    @baby = Baby.find(params[:baby_id])
+  end
+
+  def set_meal
+    @meal = Meal.find(params[:id])
   end
 
 end
