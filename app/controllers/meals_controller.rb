@@ -34,6 +34,16 @@ class MealsController < ApplicationController
     end
   end
 
+  def destroy
+    @baby = Baby.find(params[:baby_id])
+    @meal = Meal.find(params[:id])
+    if @meal.destroy
+      redirect_to baby_meals_path(@baby)
+    else
+      render :index
+    end
+  end
+
   private
   def meal_params
     params.require(:meal).permit(:food, :meal_date, :meal_time)

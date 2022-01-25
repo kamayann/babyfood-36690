@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "babies#index"
   resources :users, only: [:edit, :update]
   resources :babies, only: [:index, :new, :show, :create, :edit, :update] do
-    resources :meals, only: [:index, :new, :show, :create, :edit, :update]
+    resources :meals
   end
 end
