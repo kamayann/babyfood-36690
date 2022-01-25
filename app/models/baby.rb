@@ -1,3 +1,4 @@
 class Baby < ApplicationRecord
-  has_many :users
+  belongs_to :user
+  has_many :meals
 end
