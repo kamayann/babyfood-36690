@@ -8,7 +8,7 @@
 | relationship       | integer     | null: false               |
 
 ### Association
-- has_many :babys
+- has_many :babies
 
 ## babiesテーブル
 
