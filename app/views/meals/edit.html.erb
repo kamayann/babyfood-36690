@@ -1,5 +1,6 @@
 <h1>Meals#edit</h1>
 <%=form_with model: [@baby,@meal], local: true do |f|%>
+<%= render 'shared/error_messages', model: f.object %>
     <div class='meal-form__field'>
         <%= f.label :食事内容, class: 'meal_content_field'%>
         <%= f.text_field :food, class: 'meal_content__input', placeholder: '(例)にんじん'%>
