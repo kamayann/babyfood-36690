@@ -5,8 +5,8 @@ class MealsController < ApplicationController
   end
 
   def new
+    @meal = Meal.new
     @baby = Baby.find(params[:baby_id])
-    @meal = @baby.meals.new(meal_params)
   end
 
   def create
@@ -20,9 +20,18 @@ class MealsController < ApplicationController
   end
 
   def edit
+    @baby = Baby.find(params[:baby_id])
+    @meal = Meal.find(params[:id])
   end
 
   def update
+    @baby = Baby.find(params[:baby_id])
+    @meal = Meal.find(params[:id])
+    if @meal.update(meal_params)
+      redirect_to baby_meals_path(@baby)
+    else
+      render :edit
+    end
   end
 
   private

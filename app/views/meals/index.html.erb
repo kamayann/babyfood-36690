@@ -7,8 +7,8 @@
         <div class='meal-info'>
             <%= meal.meal_date %>
             <%= meal.meal_time %>
-            <%= @meal.food %>
-            <%= link_to "編集", baby_meal_path(@baby, meal.id) ,class: 'btn' %>
+            <%= meal.food %>
+            <%= link_to "編集", edit_baby_meal_path(@baby, meal.id) ,class: 'btn' %>
         </div>
       </li>
       <% end %>
