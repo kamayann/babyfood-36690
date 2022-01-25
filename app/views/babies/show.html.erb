@@ -1,3 +1,4 @@
 Baby#show
 <%= link_to "プロフィールを更新する", edit_baby_path(@baby.id) ,class: 'btn' %>
 <%= @baby.nickname %>
+<%= link_to "離乳食", baby_meals_path(@baby.id) ,class: 'btn' %>
