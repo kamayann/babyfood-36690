@@ -1,12 +1,12 @@
 class MealsController < ApplicationController
   def index
+    @baby = Baby.find(params[:baby_id])
+    @meals = Meal.all.includes(:baby)
   end
 
   def new
-    @meal = Meal.new
-  end
-
-  def show
+    @baby = Baby.find(params[:baby_id])
+    @meal = @baby.meals.new(meal_params)
   end
 
   def create

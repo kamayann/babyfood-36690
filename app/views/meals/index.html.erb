@@ -1,2 +1,16 @@
 <h1>Meals#index</h1>
 <%= link_to "食事情報登録", new_baby_meal_path ,class: 'btn' %>
+<ul class='meal-lists'>
+     <% if @meals.present? %>
+      <% @meals.each do |meal| %>
+       <li>
+        <div class='meal-info'>
+            <%= meal.meal_date %>
+            <%= meal.meal_time %>
+            <%= @meal.food %>
+            <%= link_to "編集", baby_meal_path(@baby, meal.id) ,class: 'btn' %>
+        </div>
+      </li>
+      <% end %>
+     <% end %>
+  </ul>
