@@ -26,7 +26,7 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | food               | string     | null: false                    |
-| date               | date       | null: false                    |
+| meal_date          | date       | null: false                    |
 | meal_time          | integer    | null: false                    |
 | baby               | references | null: false, foreign_key: true |
 

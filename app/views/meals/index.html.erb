@@ -1,0 +1,17 @@
+<h1>Meals#index</h1>
+<%= link_to "食事情報登録", new_baby_meal_path ,class: 'btn' %>
+<ul class='meal-lists'>
+     <% if @meals.present? %>
+      <% @meals.each do |meal| %>
+       <li>
+        <div class='meal-info'>
+            <%= meal.meal_date %>
+            <%= change_meal_time(meal.meal_time_id) %>
+            <%= meal.food %>
+            <%= link_to "編集", edit_baby_meal_path(@baby, meal.id) ,class: 'btn' %>
+            <%= link_to "削除", baby_meal_path(@baby, meal.id) , method: :delete, class:"btn" %>
+        </div>
+      </li>
+      <% end %>
+     <% end %>
+  </ul>
