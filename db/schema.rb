@@ -15,10 +15,8 @@ ActiveRecord::Schema.define(version: 2022_01_25_015811) do
   create_table "babies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.date "birth_day", null: false
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_babies_on_user_id"
   end
 
   create_table "baby_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,7 +52,6 @@ ActiveRecord::Schema.define(version: 2022_01_25_015811) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "babies", "users"
   add_foreign_key "baby_users", "babies"
   add_foreign_key "baby_users", "users"
   add_foreign_key "meals", "babies"
