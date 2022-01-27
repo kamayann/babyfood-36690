@@ -7,7 +7,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :relationship
 
-  has_many :babies
+  has_many :baby_users
+  has_many :babies, through: :baby_users
 
   with_options presence: true do
     validates :nickname
@@ -15,6 +16,6 @@ class User < ApplicationRecord
 
   validates :relationship_id, numericality: { other_than: 1, message: "can't be blank" } 
 
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }, on: :create
   
 end
