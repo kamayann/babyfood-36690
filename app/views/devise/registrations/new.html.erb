@@ -13,15 +13,14 @@
     <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <div>
         <!--エラー表示-->
-          <%= render 'shared/error_messages', model: f.object %>
-        
+        <%= render 'shared/error_messages', model: f.object %>
         <!--入力内容-->
         <div>
           <div class="d-flex flex-row">
             <label>ニックネーム</label>
             <span class="text-red mb-2 ml-1">必須</span>
           </div>
-          <%= f.text_area :nickname, id:"nickname", placeholder:"例)テスト花子", maxlength:"40" %>
+          <%= f.text_field :nickname, id:"nickname", placeholder:"例)テスト花子", maxlength:"40" %>
         </div>
       
         <div >
