@@ -1,19 +1,11 @@
-<h1 class="text-red">Babys#index</h1>
-<p>test</p>
-<% if current_user == nil %>
-  <%= link_to "ユーザー登録", new_user_registration_path ,class: 'btn' %>
-  <%= link_to "ログイン", new_user_session_path ,class: 'btn' %>
-<% end %>
+<%= render "shared/header" %>
+<h1 class="text-red">離乳食記録アプリ</h1>
+<
 <% if current_user.present? %>
-  <%= link_to "ユーザー情報変更", edit_user_path(current_user) ,class: 'btn' %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: 'btn'%>
   <%= link_to "お子さんを追加する", new_baby_path ,class: 'btn' %>
 
   <% @babies.each do |baby| %>
     <%= link_to baby.nickname, baby_path(baby.id) ,class: 'btn' %>
   <% end %>
 <% end %>
-
-<div class="alert alert-primary" role="alert">
-  A simple primary alert—check it out!
-</div>
+<%= render "shared/footer" %>

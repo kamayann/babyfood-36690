@@ -1,2 +1,11 @@
-<div class="w-100 p-3" style="background-color: #eee;" >
+<div class="w-100" style="background-color: #fffacd;" >
+  <div class="d-flex bd-highlight">
+    <!--見出し-->
+    <h1 class="mb-0 mr-auto p-2 bd-highlight" style="color: #ff0000;" >BabyFood</h1>
+      <!--ボタン-->
+      <% if current_user.present? %>
+        <%= link_to "ユーザー情報変更", edit_user_path(current_user) ,class: 'mx-2 my-3 bd-highlight btn btn-outline-info' %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: 'mx-2 my-3 bd-highlight btn btn-outline-info'%>
+      <% end %>
+  </div>
 </div>
