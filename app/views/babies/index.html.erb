@@ -1,11 +1,27 @@
 <%= render "shared/header" %>
-<h1 class="text-red">離乳食記録アプリ</h1>
-<
-<% if current_user.present? %>
-  <%= link_to "お子さんを追加する", new_baby_path ,class: 'btn' %>
+<div class="d-flex justify-content-center my-3">
+  <div class="index-left-box w-50">
+  <div class="d-flex justify-content-end">
+    <div class="index-text mx-3">
+      <h3 class="my-4">離乳食記録アプリ</h3>
+      <h5>＜こんな方におすすめ！＞</h5>
+      <p>離乳食を進めるときにお子様が何を食べたか記録したい方</p>
+      <p>後から食事記録を振り返りたい方(保育園に入る時など便利です！)</p>
+      <p>栄養バランスを考えたい方</p>
+    </div>
+    </div>
+  </div>
 
-  <% @babies.each do |baby| %>
-    <%= link_to baby.nickname, baby_path(baby.id) ,class: 'btn' %>
+  <div class="index-right-box w-50">
+  <div class="d-flex align-items-start flex-column bd-highlight mt-3">
+  <p class="m-2">下記よりお子さんのページに進んでください<br>お子さんの登録がまだの方はご登録をお願いいたします</p>
+  <% if current_user.present? %>
+    <% @babies.each do |baby| %>
+      <%= link_to baby.nickname, baby_path(baby.id) ,class: 'm-2 btn btn-outline-success bd-highlight' %>
+    <% end %>
+    <%= link_to "＋お子さんを追加する", new_baby_path ,class: 'm-2 btn btn-outline-success bd-highlight' %>
   <% end %>
-<% end %>
+  </div>
+  </div>
+</div>
 <%= render "shared/footer" %>
