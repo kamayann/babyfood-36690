@@ -1,17 +1,36 @@
-<h1>Meals#index</h1>
-<%= link_to "食事情報登録", new_baby_meal_path ,class: 'btn' %>
-<ul class='meal-lists'>
+<%= render "shared/header" %>
+<div class="d-flex justify-content-center m-2">
+  <div class="d-flex flex-row bd-highlight">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-sm-0" type="submit">Search</button>
+    </form>
+    <%= link_to "＋新しく離乳食情報を入力する", new_baby_meal_path ,class: ' mx-5 my-2 bd-highlight' %>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">日にち</th>
+      <th scope="col">お食事時間</th>
+      <th scope="col">お食事内容</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
      <% if @meals.present? %>
       <% @meals.each do |meal| %>
-       <li>
-        <div class='meal-info'>
-            <%= meal.meal_date %>
-            <%= change_meal_time(meal.meal_time_id) %>
-            <%= meal.food %>
-            <%= link_to "編集", edit_baby_meal_path(@baby, meal.id) ,class: 'btn' %>
-            <%= link_to "削除", baby_meal_path(@baby, meal.id) , method: :delete, class:"btn" %>
-        </div>
-      </li>
+       <tr>
+        <td><%= meal.meal_date %></td>
+        <td><%= change_meal_time(meal.meal_time_id) %></td>
+        <td><%= meal.food %></td>
+        <td><%= link_to "編集", edit_baby_meal_path(@baby, meal.id) ,class: 'btn btn-outline-secondary' %></td>
+        <td><%= link_to "削除", baby_meal_path(@baby, meal.id) , method: :delete, class:"btn btn-outline-secondary" %></td>
+      </tr>
       <% end %>
      <% end %>
-  </ul>
+   </tbody>
+</table>
+
