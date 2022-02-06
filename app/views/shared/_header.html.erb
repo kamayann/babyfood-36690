@@ -6,10 +6,11 @@
   </div>
       <!--ボタン-->
       <div class="right-box w-50">
-      <% if current_user.present? %>
-        <%= link_to "ユーザー情報変更", edit_user_path(current_user) ,class: 'mx-2 my-3 bd-highlight btn btn-outline-info' %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: 'mx-2 my-3 bd-highlight btn btn-outline-info'%>
-      <% end %>
+        <% if current_user.present? %>
+          <%= link_to "トップページ", babies_path,class: 'mx-2 my-3 bd-highlight btn btn-outline-info' %>
+          <%= link_to "ユーザー情報変更", edit_user_path(current_user) ,class: 'mx-2 my-3 bd-highlight btn btn-outline-info' %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: 'mx-2 my-3 bd-highlight btn btn-outline-info'%>
+        <% end %>
       </div>
   </div>
 </div>
