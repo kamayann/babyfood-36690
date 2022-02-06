@@ -1,4 +1,21 @@
-Baby#show
-<%= link_to "プロフィールを更新する", edit_baby_path(@baby.id) ,class: 'btn' %>
-<%= @baby.nickname %>
-<%= link_to "離乳食", baby_meals_path(@baby.id) ,class: 'btn' %>
+<%= render "shared/header" %>
+<!--見出し-->
+<div class="d-flex justify-content-center my-3">
+  <div class="index-left-box w-50">
+    <div class="d-flex justify-content-center m-4">
+      <h3><%= @baby.nickname %></h3>
+    </div>
+  </div>
+  <!--ページ遷移-->
+  <div class="index-right-box w-50">
+    <div class="d-flex align-items-start flex-column bd-highlight mt-3">
+      <% if current_user.present? %>
+          <%= link_to "お子さんのプロフィールを更新する", edit_baby_path(@baby.id) ,class: 'm-2 btn btn-outline-success bd-highlight' %>
+          <%= link_to "離乳食記録", baby_meals_path(@baby.id) ,class: 'm-2 btn btn-outline-success bd-highlight' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
+
