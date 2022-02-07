@@ -1,14 +1,16 @@
 <%= render "shared/header" %>
+<!--検索欄-->
 <div class="d-flex justify-content-center m-2">
   <div class="d-flex flex-row bd-highlight">
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-sm-0" type="submit">Search</button>
     </form>
+    <!--ページ遷移-->
     <%= link_to "＋新しく離乳食情報を入力する", new_baby_meal_path ,class: ' mx-5 my-2 bd-highlight' %>
   </div>
 </div>
-
+<!--離乳食表-->
 <table class="table table-striped">
   <thead>
     <tr>
