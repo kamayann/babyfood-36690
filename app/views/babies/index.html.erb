@@ -1,19 +1,29 @@
-<h1 class="text-red">Babys#index</h1>
-<p>test</p>
-<% if current_user == nil %>
-  <%= link_to "ユーザー登録", new_user_registration_path ,class: 'btn' %>
-  <%= link_to "ログイン", new_user_session_path ,class: 'btn' %>
-<% end %>
-<% if current_user.present? %>
-  <%= link_to "ユーザー情報変更", edit_user_path(current_user) ,class: 'btn' %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete ,class: 'btn'%>
-  <%= link_to "お子さんを追加する", new_baby_path ,class: 'btn' %>
-
-  <% @babies.each do |baby| %>
-    <%= link_to baby.nickname, baby_path(baby.id) ,class: 'btn' %>
+<%= render "shared/header" %>
+<!--見出し-->
+<div class="d-flex justify-content-center my-3">
+  <div class="index-left-box w-50">
+  <div class="d-flex justify-content-end">
+    <div class="index-text mx-3">
+      <h3 class="my-4">離乳食記録アプリ</h3>
+      <h5>＜こんな方におすすめ！＞</h5>
+      <p>離乳食を進めるときにお子様が何を食べたか記録したい方</p>
+      <p>後から食事記録を振り返りたい方(保育園に入る時など便利です！)</p>
+      <p>栄養バランスを考えたい方</p>
+    </div>
+    </div>
+  </div>
+  <!--ページ遷移-->
+  <div class="index-right-box w-50">
+  <div class="d-flex align-items-start flex-column bd-highlight mt-3">
+  <p class="m-2">下記よりお子さんのページに進んでください<br>お子さんの登録がまだの方はご登録をお願いいたします</p>
+  <% if current_user.present? %>
+    <% @babies.each do |baby| %>
+      <%= link_to baby.nickname, baby_path(baby.id) ,class: 'm-2 btn btn-outline-success bd-highlight' %>
+    <% end %>
+    <%= link_to "＋お子さんを追加する", new_baby_path ,class: 'm-2 btn btn-outline-success bd-highlight' %>
   <% end %>
-<% end %>
-
-<div class="alert alert-primary" role="alert">
-  A simple primary alert—check it out!
+  </div>
+  </div>
 </div>
+
+<%= render "shared/footer" %>

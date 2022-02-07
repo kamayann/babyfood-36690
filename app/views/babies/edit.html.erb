@@ -1,27 +1,41 @@
-<div class='newbaby'>
-  <h1>Edit Baby Info</h1>
+<%= render "shared/header" %>
+<!--見出し-->
+<div class="d-flex justify-content-center mh-100 my-5">
+  <div class="left-box mr-5">
+    <h1 class="editbaby-index">edit baby info</h2>
+  </div>
+
+ <div class="right-box mr-5">
   <%=form_with model: @baby, local: true do |f|%>
-  <%= render 'shared/error_messages', model: f.object %>
-    <div class='babyname-form__field'>
-        <%= f.label :赤ちゃんのお名前, class: 'babyname-form__label'%>
-        <%= f.text_field :nickname, class: 'babyname babyname-form__input', placeholder: '赤ちゃんの名前'%>
-    </div>
-    <div class='babyname-form__field'>
+    <!--エラー表示-->
+    <%= render 'shared/error_messages', model: f.object %>
+      <!--入力内容-->
+      <div class='babyname-form__field'>
+          <%= f.label :赤ちゃんのお名前%>
+        <div>
+          <%= f.text_field :nickname, class:"w-100", placeholder: '赤ちゃんの名前'%>
+        </div>
+      </div>
+      <div class="mt-3">
         <%= f.label :お誕生日, class: 'babyname-form__label'%>
-        <%= raw sprintf(
-                  f.date_select(
-                    :birth_day,
-                    class:'select-birth',
-                    id:"birth-date",
-                    use_month_numbers: true,
-                    prompt:'--',
-                    start_year: 2022,
-                    end_year: (Time.now.year - 5),
-                    date_separator: '%s'),
-                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
-    </div>
-    <div class='babyname-form__field'>
-        <%= f.submit value = '更新', class: 'chat-room-form__action-btn' %>
-    </div>
+        <div>
+          <%= raw sprintf(
+                    f.date_select(
+                      :birth_day,
+                      class:"w-100",
+                      id:"birth-date",
+                      use_month_numbers: true,
+                      prompt:'--',
+                      start_year: 2022,
+                      end_year: (Time.now.year - 5),
+                      date_separator: '%s'),
+                    "年", "月") + "日" %>
+        </div>
+      </div>
+      
+      <div class="d-flex justify-content-start mt-4">
+          <%= f.submit value = '更新', class: "btn btn-primary" %>
+      </div>
   <% end %>
-</div>
+  </div>
+</div>    
