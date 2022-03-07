@@ -61,3 +61,5 @@ gem 'active_hash'
 
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
+
+gem 'rspec-rails', '~> 4.0.0'
