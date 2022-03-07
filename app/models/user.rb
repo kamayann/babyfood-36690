@@ -10,9 +10,7 @@ class User < ApplicationRecord
   has_many :baby_users
   has_many :babies, through: :baby_users
 
-  with_options presence: true do
-    validates :nickname
-  end
+  validates :nickname, presence: true, length: { maximum: 10}
 
   validates :relationship_id, numericality: { other_than: 1, message: "can't be blank" } 
 
