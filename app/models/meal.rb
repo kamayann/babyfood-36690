@@ -6,7 +6,6 @@ class Meal < ApplicationRecord
   with_options presence: true do
     validates :food
     validates :meal_date
-    validates :meal_time
   end
 
   validates :meal_time_id, numericality: { other_than: 1, message: "can't be blank" } 

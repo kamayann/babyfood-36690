@@ -12,7 +12,6 @@ class BabiesController < ApplicationController
 
   def create
     @baby = Baby.new(baby_params)
-    binding.pry
     if @baby.save
       redirect_to baby_path(@baby.id)
     else
