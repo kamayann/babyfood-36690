@@ -25,6 +25,8 @@ MySQL
 Heroku
 ## ソース管理
 GitHub, GitHubDesktop
+## テスト
+Rspec
 ## エディタ
 VSCode
 
